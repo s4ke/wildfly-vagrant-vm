@@ -1,0 +1,10 @@
+Required Programs:
+
+Oracle Virtualbox
+
+Required Vagrant Plugins:
+
+vagrant-disksize
+vagrant-docker-compose
+
+vagrant up --provider=virtualbox

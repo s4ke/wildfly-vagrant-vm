@@ -1,0 +1,8 @@
+FROM mysql:5.7
+
+# Copy custom conf file(s)
+COPY mysqlconf/my.cnf /etc/mysql/conf.d/
+
+# Make the conf files not writeable so mysql will read them
+RUN chmod a-w /etc/mysql/conf.d/*
+

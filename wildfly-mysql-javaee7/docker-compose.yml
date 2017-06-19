@@ -1,0 +1,53 @@
+version: '2'
+
+services:
+  mysqldb:
+    container_name: "mysqldb"
+    hostname: mysqldb
+    restart: always
+    extends:
+      file: base.yml
+      service: base
+    build:
+      context: .
+      dockerfile: mysqldb-dockerfile
+    volumes:
+      - /vagrant/server-data/mysqldata:/var/lib/mysql
+      - /vagrant/mysqlinit:/docker-entrypoint-initdb.d
+    ports:
+      - 12345:3306
+      
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    extends:
+      file: base.yml
+      service: base
+    ports:
+      - 8181:80
+    volumes:
+      - /sessions
+    links:
+      - mysqldb:db    
+     
+  fmcwlfly:
+    container_name: "fmcwlfly-app"
+    hostname: fmcwlfly-app
+    restart: always
+    extends:
+      file: base.yml
+      service: base
+    build:
+      context: .
+      dockerfile: wildfly-dockerfile
+    volumes:
+      - /vagrant/server-data/wildfly-logs:/opt/jboss/wildfly/standalone/log
+      - /vagrant/server-data/wildfly-deployments:/opt/jboss/wildfly/standalone/deployments
+    ports:
+      - 8080:8080
+      - 8443:8443
+      - 9990:9990
+      - 43974:43974
+    links:
+      - mysqldb
