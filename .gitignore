@@ -1,1 +1,3 @@
 wildfly-mysql-javaee7/.vagrant/
+wildfly-mysql-javaee7/server-data/mysqldata/
+wildfly-mysql-javaee7/server-data/wildfly-logs/
