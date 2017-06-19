@@ -5,7 +5,8 @@ minimal configurable Vagrant VM with Wildfly, MySQL and PHPMyAdmin running in Do
 
 - Configure the settings in base.yml
 - Configure Wildfly standalone in wildfly-mysql-javaee7/configuration/xml/standalone.xml
-- Place war file in wildfly-mysql-javaee7/server-data/wildfly-deployments
+- Place war file in wildfly-mysql-javaee7/server-data/wildfly-deployments/
+- Put MySQL SQL init files into wildfly-mysql-javaee7/mysqlinit/
 
 # Persisted Folders
 
