@@ -41,6 +41,6 @@ config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.vm.network "forwarded_port", guest: 43974, host_ip: "127.0.0.1", host: 43974
   
   config.vm.provision :docker
-  config.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml",
+  config.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml", rebuild: true,
     command_options: { up: "-d --timeout 20 --force-recreate"}, run: "always"
 end

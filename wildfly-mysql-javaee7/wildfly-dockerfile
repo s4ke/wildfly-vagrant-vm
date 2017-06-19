@@ -23,10 +23,12 @@ ADD configuration/xml/standalone.xml $JBOSS_HOME/standalone/configuration/standa
 ADD configuration/certs/ $JBOSS_HOME/standalone/configuration/certs
 
 # update rights for everything to be jboss user owned
-#RUN chown -R jboss:jboss $JBOSS_HOME/standalone
+RUN chown -R jboss:jboss $JBOSS_HOME
 
 # Switch to $JBOSS_HOME/configuration/certs
 WORKDIR /opt/jboss/wildfly/standalone/configuration/certs
+
+RUN chmod +x certificate.sh
 
 # Execute the script to generate self signed certificates
 RUN ./certificate.sh
@@ -38,6 +40,8 @@ WORKDIR /opt/jboss/wildfly
 EXPOSE 8443
 
 ADD customization /opt/jboss/wildfly/customization/
+
+RUN chmod +x $JBOSS_HOME/customization/execute.sh
 
 CMD ["/opt/jboss/wildfly/customization/execute.sh"]
 
