@@ -1,18 +1,18 @@
 version: '2'
 
 services:
-  mysqldb:
-    container_name: "mysqldb"
-    hostname: mysqldb
+  database:
+    container_name: "database"
+    hostname: database
     restart: always
     extends:
       file: base.yml
       service: base
     build:
       context: .
-      dockerfile: mysqldb-dockerfile
+      dockerfile: database-dockerfile
     volumes:
-      - /vagrant/server-data/mysqldata:/var/lib/mysql
+      - /vagrant/server-data/mysqldata:/var/lib/mysql:z
       - /vagrant/mysqlinit:/docker-entrypoint-initdb.d
     ports:
       - 12345:3306
@@ -29,7 +29,7 @@ services:
     volumes:
       - /sessions
     links:
-      - mysqldb:db    
+      - database:db    
      
   fmcwlfly:
     container_name: "fmcwlfly-app"
@@ -50,4 +50,4 @@ services:
       - 9990:9990
       - 43974:43974
     links:
-      - mysqldb
+      - database
