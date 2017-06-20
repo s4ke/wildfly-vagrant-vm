@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: supersecret
       MYSQL_ROOT_HOST: mywildfly
       
-      WILDFLY_JDBC_URL: jdbc:mysql://mysqldb:3306/fmc?serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
+      WILDFLY_JDBC_URL: jdbc:mysql://db:3306/fmc?serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
       
       WILDFLY_ADMIN: admin
       WILDFLY_ADMIN_PW: adminsrule

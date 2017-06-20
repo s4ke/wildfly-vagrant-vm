@@ -50,4 +50,4 @@ services:
       - 9990:9990
       - 43974:43974
     links:
-      - database
+      - database:db
