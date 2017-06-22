@@ -42,7 +42,7 @@ services:
       context: .
       dockerfile: wildfly-dockerfile
     environment:
-      JAVA_OPTS: "-Xms256m -Xmx768m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
+      JAVA_OPTS: "-Xms256m -Xmx768m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true"
     volumes:
       - /vagrant/server-data/wildfly-logs:/opt/jboss/wildfly/standalone/log
       - /vagrant/server-data/wildfly-deployments:/opt/jboss/wildfly/standalone/deployments
