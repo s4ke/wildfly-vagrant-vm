@@ -31,9 +31,9 @@ services:
     links:
       - database:db    
      
-  fmcwlfly:
-    container_name: "fmcwlfly-app"
-    hostname: fmcwlfly-app
+  wlfly:
+    container_name: "wlfly-app"
+    hostname: wlfly-app
     restart: always
     extends:
       file: base.yml
