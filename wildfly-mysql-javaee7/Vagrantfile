@@ -42,5 +42,5 @@ config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   
   config.vm.provision :docker
   config.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml", rebuild: true,
-    command_options: { up: "-d --timeout 20 --force-recreate"}, run: "always"
+    command_options: { up: "-d --timeout 20 --force-recreate --remove-orphans"}, run: "always"
 end
