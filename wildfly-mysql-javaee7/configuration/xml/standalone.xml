@@ -445,15 +445,15 @@
         <subsystem xmlns="urn:jboss:domain:undertow:3.0">
             <buffer-cache name="default"/>
             <server name="default-server">
-                <http-listener name="default" socket-binding="http" max-parameters="5000" redirect-socket="https"/>
-				<https-listener name="default-ssl" socket-binding="https" security-realm="FMCRealm" max-parameters="5000"/>
+                <http-listener name="default" socket-binding="http" max-parameters="5000" redirect-socket="https" url-charset="UTF-8"/>
+				<https-listener name="default-ssl" socket-binding="https" security-realm="FMCRealm" max-parameters="5000" url-charset="UTF-8"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
                 </host>
             </server>
-            <servlet-container name="default">
+            <servlet-container name="default" default-encoding="UTF-8">
                 <jsp-config/>
                 <websockets/>
             </servlet-container>

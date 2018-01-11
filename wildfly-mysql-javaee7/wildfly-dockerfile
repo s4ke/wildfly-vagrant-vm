@@ -1,5 +1,9 @@
 FROM jboss/wildfly:10.1.0.Final
 
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 # Run everything below as root user
 USER root
 

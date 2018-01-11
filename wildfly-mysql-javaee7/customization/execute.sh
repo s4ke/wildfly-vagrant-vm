@@ -15,5 +15,5 @@ $JBOSS_HOME/bin/add-user.sh -a $WILDFLY_ADMIN $WILDFLY_ADMIN_PW -g user,admin --
 $JBOSS_HOME/bin/add-user.sh -a $WILDFLY_USER $WILDFLY_USER_PW -g user --silent
 
 echo "=> Starting WildFly"
-$JBOSS_HOME/bin/$JBOSS_MODE.sh -b 0.0.0.0 -c $JBOSS_CONFIG $WILDFLY_DEBUG
+$JBOSS_HOME/bin/$JBOSS_MODE.sh -b 0.0.0.0 -c $JBOSS_CONFIG $WILDFLY_DEBUG -Dfile.encoding=UTF-8
 
