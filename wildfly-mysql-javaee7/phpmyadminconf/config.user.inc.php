@@ -1,2 +1,2 @@
 $cfg['DefaultCharset'] = 'utf8';
-$cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
+$cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
