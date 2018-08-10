@@ -1,13 +1,19 @@
-version: '2'
+version: '2.1'
 
 services:
   base:
     environment:
       MYSQL_USER: mysql
-      MYSQL_PASSWORD: mysql
+      MYSQL_PASSWORD: mysql      
       MYSQL_DATABASE: fmc
+      MYSQL_DB: fmc
       MYSQL_ROOT_PASSWORD: supersecret
       MYSQL_ROOT_HOST: mywildfly
+      
+      DB_USER: mysql
+      DB_PASS: mysql
+      DB_DUMP_FREQ: 15
+      DB_NAMES: fmc
       
       WILDFLY_JDBC_URL: jdbc:mysql://db:3306/fmc?serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
       

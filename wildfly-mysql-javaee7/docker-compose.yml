@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 
 services:
   database:
@@ -16,6 +16,26 @@ services:
       - /vagrant/mysqlinit:/docker-entrypoint-initdb.d
     ports:
       - 12345:3306
+    healthcheck:
+      test: "exit 0"
+      
+  databasebackup:
+    image: deitch/mysql-backup
+    container_name: "databasebackup"
+    hostname: databasebackup
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: always
+    extends:
+      file: base.yml
+      service: base
+    volumes:
+      - /vagrant/server-data/mysql-backup:/backup
+    environment:
+      DB_DUMP_TARGET: /backup
+      DB_SERVER: database
+      DB_PORT: 3306
       
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
