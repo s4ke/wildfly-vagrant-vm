@@ -27,6 +27,7 @@ services:
       database:
         condition: service_healthy
     restart: always
+    user: "1000"
     extends:
       file: base.yml
       service: base
